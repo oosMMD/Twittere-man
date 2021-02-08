@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+UsersPage
+{% endblock %}
+{% block body %}
+<h2><a href="{% url 'users:signup' %}"> Create Your account </a></h2>
+
+<p> Do you have one? </p>
+<h2><a href="{% url 'users:login' %}">Log in</a></h2>
+{% endblock %}

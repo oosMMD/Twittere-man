@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+ <link rel="stylesheet" href="{% static 'styles.css'%}">
+</head>
+
+<div class="wrapper">
+<nav>
+    <ul>
+        <li>
+            <form class="logout-list" action="{% url 'users:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">logout</button>
+            </form>
+        </li>
+    </ul>
+</nav>
+
+    <h1><a href="{% url 'home' %}" class="highlight3">HOME</a> </h1>
+
+<body>
+{% block body %}
+{% endblock %}
+</body>
+</div>
+</html>
