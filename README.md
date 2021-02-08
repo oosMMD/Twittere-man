@@ -1,3 +1,3 @@
 # Twittere-man
 
-khob felan faqat tonestam login va sighn up ro besazam
+khob felan faqat tonestam login va signup ro besazam
