@@ -34,5 +34,6 @@ def signup(request):
     return render(request, 'signup.html', {'form': form})
 
 
-def logout(request):
-    return render(request, 'signup.html')
+def logout_view(request):
+    logout(request)
+    return redirect('home')
