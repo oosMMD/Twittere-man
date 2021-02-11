@@ -1,9 +1,35 @@
-{% extends 'base.html' %}
-{% block title %}
-home
-{% endblock %}
-{% block body %}
-    <p><a href="{% url 'users:users' %}"> manage your account</a></p>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+HomePage
+    </title>
+ <link rel="stylesheet" href="{% static 'styles.css'%}">
+</head>
 
-<h2>Welcome to my twitter</h2>
-{% endblock %}
+<div class="wrapper">
+<nav>
+    <ul>
+        <li>
+            <form class="logout-list" action="{% url 'users:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">logout</button>
+            </form>
+        </li>
+    </ul>
+</nav>
+
+
+<body>
+    <h1>Welcome to my twitter</h1>
+    <p><a href="{% url 'users:users' %}"> manage your account</a></p>
+    <h2 class="post-page-link"><a href="{% url 'posts:home' %}">Visit posts</a></h2>
+    <p><a href="{% url 'posts:create' %}" class="highlight"> Create new Post </a></p>
+
+
+</body>
+</div>
+</html>
+

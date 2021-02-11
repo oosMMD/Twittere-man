@@ -1,155 +1,229 @@
 body {
-  background-color: #0f121f;
-  background-image: url(stars.jpg);
-  background-repeat-y:1;
-  background-attachment: fixed;
-  color:#fff;
-}
-body *{
-  font-family:arial;
-}
-h1{
-  font-weight:normal;
-  margin:0;
-  color:lightgreen;
+    background-color: #0f121f;
+    background-image: url(stars.jpg);
+    background-repeat-y: 1;
+    background-attachment: fixed;
+    color: #fff;
 }
 
-h2,h3,h4,h5{
-  font-weight:normal;
-  margin:0;
+body * {
+    font-family: arial;
 }
 
-a,a:hover,a:visited{
-  color:#ff5722;
-  text-decoration:none;
-}
-.wrapper{
-  max-width:500px;
-  margin:auto;
-  text-align:center;
-}
-div.wrapper h1{
-  text-align:center;
-  margin:100px auto;
-  font-size:2.4em;
-}
-header{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  padding:20px 0;
-}
-nav li{
-  display:inline-block;
-  margin-left:20px;
-}
-nav button{
-  margin-right:60px;
-  background:none;
-  color:#fff;
-  cursor:pointer;
-  border:0;
-  font-size:20px;
-}
-.article{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  grid-gap:30px;
-}
-.article{
-  padding:10px;
-  border:1px solid #00dba0;
-  position:relative;
-  padding-bottom:40px;
-}
-.article h2{
-  font-size:1.2em;
-}
-.article .seller{
-  padding:10px;
-  background-color:#00dba0;
-  position:absolute;
-  right:0;
-  bottom:0;
-  margin:0;
-  color:#0f121f;
-}
-.detail .seller{
-  padding:5px;
-  background-color:greenyellow;
-  color:#f12;
-  font-size:35px;
-}
-.article-detail .article{
-  padding:0;
-}
-.article-detail .article img{
-  max-width:100%;
+h1 {
+    font-weight: normal;
+    margin: 0;
+    color: lightgreen;
 }
 
-.article-detail .article h2{
-  text-align:center;
-  font-size:2em;
+h2, h3, h4, h5 {
+    font-weight: normal;
+    margin: 0;
 }
-.article-detail .article p{
-  text-align:center;
+
+a, a:hover, a:visited {
+    color: #ff5722;
+    text-decoration: none;
 }
-.site-form{
-  margin-top:60px;
-  border:1px solid #00dba0;
-  padding:20px;
+
+.wrapper {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
 }
-.site-form input,.site-form textarea{
-  display:block;
-  margin:20px 0 0 0;
-  padding:10px;
+
+div.wrapper h1 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    font-size: 2.4em;
 }
-a.highlight{
-  border:1px solid #00dba0;
-  padding:8px;
-  border-radius:4px;
-  color:#00dba0;
+
+header {
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    padding: 20px 0;
 }
-a.highlight2{
-  margin-:50px;
-  border:1px solid #f12;
-  padding:5px;
-  border-radius:4px;
-  color:#11dba1;
+
+nav li {
+    display: inline-block;
+    margin-left: 20px;
 }
-a.highlight3{
-  margin-:50px;
-  border:1px solid yellow;
-  padding:5px;
-  border-radius:4px;
-  color:red;
+
+nav button {
+    margin-right: 60px;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    font-size: 20px;
 }
-.helptext,.helptext ul{
-  margin:0 auto 20px;
-  color:#bbb;
-  font-size:0.9em;
-  display:block;
+
+.article {
+    display: grid;
+    grid-gap: 30px;
 }
-.errorlist li{
-  padding:10px;
-  list-style-type:none;
-  border:1px solid #ff5722;
-  color:#ff5722;
-  margin:10px 0;
+
+.article {
+    padding: 10px;
+    border: 1px solid #00dba0;
+    position: relative;
+    padding-bottom: 40px;
 }
-.errorlist{padding:0;}
-.site-form input[type="submit"]{
-  border:0;
-  color:#fff;
-  font-size:1.2em;
-  background:#00dba0;
-  border-radius:4px;
-  margin:10px 0;
+
+.article h2 {
+    font-size: 2em;
+    margin-top: 10px;
+    margin-left: 5px
 }
-input.input1:hover{
-  border: 2px solid red;
+
+.article .seller {
+    padding: 10px;
+    background-color: #00dba0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    color: #0f121f;
 }
-.Home_Ico{
-  border:1px solid yellow;
-  max-width:150px;
-  border-radius:20px;
+
+.detail .seller {
+    padding: 5px;
+    background-color: greenyellow;
+    color: #f12;
+    font-size: 35px;
 }
+
+.article-detail .article {
+    padding: 0;
+}
+
+.article-detail .article img {
+    max-width: 100%;
+}
+
+.article-detail .article h2 {
+    text-align: center;
+    font-size: 2em;
+}
+
+.article-detail .article p {
+    text-align: center;
+}
+
+.site-form {
+    margin-top: 60px;
+    border: 1px solid #00dba0;
+    padding: 20px;
+}
+
+.site-form input, .site-form textarea {
+    display: block;
+    margin: auto auto;
+    padding: 20px;
+}
+
+.site-form label {
+    display: block;
+    margin: auto auto;
+    padding: 20px;
+    font-size: 30px;
+    color: #ff5722;
+}
+
+a.highlight {
+    border: 3px solid red;
+    padding: 8px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: yellowgreen;
+}
+
+a.highlight2 {
+    margin: 50px;
+    border: 1px solid #f12;
+    padding: 5px;
+    border-radius: 4px;
+    color: #11dba1;
+}
+
+a.highlight3 {
+    margin-: 50px;
+    border: 1px solid yellow;
+    padding: 5px;
+    border-radius: 4px;
+    color: red;
+    background-color: black;
+}
+
+.helptext, .helptext ul {
+    display: none;
+}
+
+.errorlist li {
+    padding: 10px;
+    list-style-type: none;
+    border: 1px solid #ff5722;
+    color: #ff5722;
+    margin: 10px 0;
+}
+
+.errorlist {
+    padding: 0;
+}
+
+.site-form input[type="submit"] {
+    border: 0;
+    color: #fff;
+    font-size: 1.2em;
+    background: #00dba0;
+    border-radius: 4px;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+input.input1:hover {
+    border: 2px solid red;
+}
+
+.Home_Ico {
+    border: 1px solid yellow;
+    max-width: 150px;
+    border-radius: 20px;
+}
+
+.post-page-link {
+    margin: 50px;
+    border: 2px solid cyan;
+    padding: 30px;
+    border-radius: 4px;
+    color: cyan;
+    background-color: black;
+}
+
+.editedbody {
+    margin: auto auto;
+    max-width: 500px;
+}
+
+.author-link, .author-link:visited {
+    color: purple;
+    font-size: 1.3em;
+}
+
+.datetime {
+    font-size: 1.5em;
+    background-color: black;
+    color: aquamarine;
+    border: 2px solid red;
+    padding: 20px;
+}
+
+.post-body {
+    border-radius: 50px;
+    padding: 50px;
+    font-size: 1.2em;
+    border: 5px solid cyan;
+    background-color: #4f4f4f;
+}
+

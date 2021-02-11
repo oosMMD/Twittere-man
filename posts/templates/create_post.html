@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+CreatePost
+{% endblock %}
+
+{% block body %}
+    <form class="site-form" action="{% url 'posts:create' %}" method="post">
+    {{ form }}
+    {% csrf_token %}
+    <input type="submit" value="Create" class="input1">
+    </form>
+{% endblock %}

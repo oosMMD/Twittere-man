@@ -1,7 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+
+class Followers(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    another_user = models.ManyToManyField(User, related_name='another_user')
+
+    def __str__(self):
+        return self.user.name
 
 
 class User(models.Model):
-    username = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
-    # followers = models.
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
