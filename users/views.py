@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
-from .models import Followers, User
+from .models import Profile
 
 
 def users(request):
@@ -39,3 +40,7 @@ def logout_view(request):
     logout(request)
     return redirect('home')
 
+
+def profile(request, name):
+    form = Profile.objects.get(name=name)
+    return render(request, 'profile.html', {'form': form})

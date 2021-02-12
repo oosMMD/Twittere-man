@@ -10,7 +10,9 @@
     <div class="article">
     <h2 class="post_title"><a href= "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h2>
     <p class="editedbody"> {{ post.editedbody }} </p>
-    <p class="seller">added by <a href="{% url 'users:profile' user_obj.name %}" class="author-link">{{post.author.username}}</a></p>
+    <p class="seller">added by <a href="#" class="author-link">{{post.author.username}}</a></p>
+
+{#        {% url 'users:profile'  name_id=post.author.id %}#}
 {#    answers    #}
     </div>
     {% endfor %}
