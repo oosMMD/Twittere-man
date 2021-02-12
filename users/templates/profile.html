@@ -22,9 +22,9 @@
 
     {% if user_obj.name != request.session.user%}
     {% if is_followed %}
-        <a href="{% url 'follow' user_obj.name %}" style="border: 1px solid; background: red; padding:10px; color: white;">Unfollow</a>
+        <a href="{% url 'users:follow' user_obj.name %}" style="border: 1px solid; background: red; padding:10px; color: white;">Unfollow</a>
     {% else %}
-        <a href="{% url 'follow' user_obj.name %}" style="border: 1px solid; background: yellow; padding:10px; color: black;">Follow</a>
+        <a href="{% url 'users:follow' user_obj.name %}" style="border: 1px solid; background: yellow; padding:10px; color: black;">Follow</a>
     {% endif %}
 
     {% endif %}
