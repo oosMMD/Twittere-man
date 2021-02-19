@@ -4,15 +4,13 @@
     postsPage
 {% endblock %}
 {% block body %}
-     <p><a href="{% url 'posts:create' %}"  class="highlight"> Create new Post </a></p>
-
+    <p><a href="{% url 'posts:create' %}"  class="highlight"> Create new Post </a></p>
     {% for post in posts %}
     <div class="article">
     <h2 class="post_title"><a href= "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h2>
     <p class="editedbody"> {{ post.editedbody }} </p>
-    <p class="seller">added by <a href="#" class="author-link">{{post.author.username}}</a></p>
+    <p class="seller">added by <a href="{% url 'users:profile' slug=post.auth_slug %}" class="author-link">{{post.author.username}}</a></p>
 
-{#        {% url 'users:profile'  name_id=post.author.id %}#}
 {#    answers    #}
     </div>
     {% endfor %}

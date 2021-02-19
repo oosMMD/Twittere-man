@@ -227,3 +227,12 @@ input.input1:hover {
     background-color: #4f4f4f;
 }
 
+.profile_name {
+    font-size: 2em;
+    margin: 50px 200px;
+    color: yellow;
+    border: 2px solid red;
+    border-radius: 50px;
+    padding: 50px;
+}
+

@@ -6,6 +6,17 @@ ProfilePage
 
 {% block body %}
 
-    <h1>{{ form.name }}</h1>
+    <h1 class="profile_name">{{ form.name }}</h1>
+
+    <h1>Posts</h1>
+
+    {% for post in posts %}
+        {% if post.author.username == form.name %}
+    <div class="article">
+    <h2 class="post_title"><a href= "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h2>
+    <p class="editedbody"> {{ post.editedbody }} </p>
+    </div>
+        {% endif %}
+    {% endfor %}
 
 {% endblock %}

@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
+from posts.models import Post
 from .models import Profile
+from .forms import CreateProfile
 
 
 def users(request):
@@ -27,8 +28,13 @@ def login_view(request):
 def signup(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
+        form2 = CreateProfile(request.POST)
         if form.is_valid():
             user = form.save()
+            instance = form2.save(commit=False)
+            instance.name = str(user.username)
+            instance.user_slug = str(instance.name).strip()
+            instance.save()
             login(request, user)
             return redirect('home')
     else:
@@ -41,6 +47,7 @@ def logout_view(request):
     return redirect('home')
 
 
-def profile(request, name):
-    form = Profile.objects.get(name=name)
-    return render(request, 'profile.html', {'form': form})
+def profile(request, slug):
+    posts = Post.objects.all()
+    form = Profile.objects.get(user_slug=slug)
+    return render(request, 'profile.html', {'form': form, 'posts': posts})

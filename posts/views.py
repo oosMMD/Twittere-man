@@ -20,6 +20,7 @@ def create_post(request):
         instance = form.save(commit=False)
         instance.author = request.user
         instance.slug = instance.title.strip()
+        instance.auth_slug = str(instance.author).strip()
         instance.save()
         return redirect('posts:home')
     form = forms.CreatePost

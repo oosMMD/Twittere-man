@@ -11,6 +11,8 @@
         <input name="next" type="hidden" value="{{ request.GET.next }}">
         {% endif %}
     <input type="submit" value="Log Me In" class="input1">
+
+<div class="signup_request"><p>dont have any account? <a href="{% url 'users:signup' %}">create one</a></p></div>
 </form>
 
 {% endblock %}
