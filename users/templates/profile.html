@@ -6,8 +6,8 @@ ProfilePage
 
 {% block body %}
 
-    <h1 class="profile_name">{{ form.name }}</h1>
-
+    <h1 class="profile_name">///&nbsp;&nbsp;&nbsp; {{ form.name }} &nbsp;&nbsp;&nbsp; ///</h1>
+    <a href="{% url "users:follow" slug=form.name %}" class="follow_btn">Follow</a>
     <h1>Posts</h1>
 
     {% for post in posts %}

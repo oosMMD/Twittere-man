@@ -6,6 +6,6 @@
 {% block body %}
     <h1>{{ post.title }}</h1>
     <p class="post-body">{{ post.body }}</p>
-    <div class="detail"><p class="seller"> author : {{ post.author }}</p></div>
+    <div class="detail"><p class="seller"> author : <a href="{% url 'users:profile' slug=post.auth_slug %}" class="author-link">{{post.author}}</a></p></div>
     <p class="datetime">{{ post.date }}</p>
 {% endblock %}

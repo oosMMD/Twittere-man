@@ -229,10 +229,24 @@ input.input1:hover {
 
 .profile_name {
     font-size: 2em;
-    margin: 50px 200px;
+    margin: 200px;
     color: yellow;
     border: 2px solid red;
     border-radius: 50px;
     padding: 50px;
 }
 
+.follow_btn, .follow_btn:visited {
+    color: black;
+    background-color: pink;
+    border: 4px solid red;
+    font-size: 40px;
+    margin-bottom: 50px;
+    padding: 10px;
+}
+
+.follow_btn:hover {
+    background-color: #b462b4;
+    font-size: 41px;
+    color: black;
+}
