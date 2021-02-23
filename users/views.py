@@ -5,6 +5,7 @@ from posts.models import Post
 from .models import Profile, Follow
 from .forms import CreateProfile, Follow_form
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 
 def users(request):
@@ -39,6 +40,7 @@ def signup(request):
             instance.user_slug = str(instance.name).strip()
             instance.save()
             instance2.me = user
+            instance2.follower_slug = str(instance2.me).strip()
             instance2.save()
             login(request, user)
             return redirect('home')
@@ -58,25 +60,16 @@ def profile(request, slug):
     return render(request, 'profile.html', {'form': form, 'posts': posts})
 
 
-def follow(request, slug):
-    other_user = Profile.objects.get(user_slug=slug)
-    session_user = Follow.objects.get(me='ss')
-    get_user = Profile.objects.get(user_slug=session_user)
-    check_follower = Follow.objects.get(me=get_user.id)
-    is_followed = False
-    if other_user.name != session_user:
-        if check_follower.another_user.filter(name=other_user).exists():
-            add_usr = Follow.objects.get(me=get_user)
-            add_usr.another_user.remove(other_user)
-            is_followed = False
+def follow_view(request, slug):
+    other_user = Follow.objects.get(follower_slug=slug)  # in esme kasi ke gharare folow she ro barmigardoone(following)
+    me = Follow.objects.get(follower_slug=request.user)  # in esme hesabe ma ro barmigardoone (follower)
+    if me.me != other_user.me:
+        is_following = 0
+        if me.other_guy.filter(other_guy=other_user).exists():
+            me.other_guy.remove(other_user.me)
             return redirect('users:profile', slug=slug)
         else:
-            add_usr = Follow.objects.get(me=get_user)
-            add_usr.other_user.add(other_user)
-            is_followed = True
+            me.other_guy.add(other_user.me)
             return redirect('users:profile', slug=slug)
 
-        return redirect('users:profile', slug=slug)
-
     return redirect('users:profile', slug=slug)
-

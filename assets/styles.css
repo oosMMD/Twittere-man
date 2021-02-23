@@ -250,3 +250,10 @@ input.input1:hover {
     font-size: 41px;
     color: black;
 }
+.your_following{
+    border: 2px solid yellowgreen;
+    padding:20px;
+    font-size:2em;
+    color:orange;
+    margin:50px;
+}
