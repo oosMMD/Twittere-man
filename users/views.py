@@ -5,7 +5,6 @@ from posts.models import Post
 from .models import Profile, Follow
 from .forms import CreateProfile, Follow_form
 from django.http import HttpResponse
-from django.contrib.auth.models import User
 
 
 def users(request):
@@ -64,8 +63,7 @@ def follow_view(request, slug):
     other_user = Follow.objects.get(follower_slug=slug)  # in esme kasi ke gharare folow she ro barmigardoone(following)
     me = Follow.objects.get(follower_slug=request.user)  # in esme hesabe ma ro barmigardoone (follower)
     if me.me != other_user.me:
-        is_following = 0
-        if me.other_guy.filter(other_guy=other_user).exists():
+        if me.other_guy.filter(me=other_user).exists():
             me.other_guy.remove(other_user.me)
             return redirect('users:profile', slug=slug)
         else:
