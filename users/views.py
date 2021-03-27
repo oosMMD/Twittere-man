@@ -4,7 +4,6 @@ from django.contrib.auth import login, logout
 from posts.models import Post
 from .models import Profile, Follow
 from .forms import CreateProfile, Follow_form
-from django.http import HttpResponse
 
 
 def users(request):
@@ -56,7 +55,10 @@ def logout_view(request):
 def profile(request, slug):
     posts = Post.objects.all()
     form = Profile.objects.get(user_slug=slug)
-    return render(request, 'profile.html', {'form': form, 'posts': posts})
+    our_name = str(Profile.objects.get(name=request.user))
+    is_following = bool(Follow.is_following)
+    return render(request, 'profile.html',
+                  {'form': form, 'posts': posts, 'our_name': our_name, 'is_following': is_following})
 
 
 def follow_view(request, slug):
@@ -65,9 +67,11 @@ def follow_view(request, slug):
     if me.me != other_user.me:
         if me.other_guy.filter(me=other_user).exists():
             me.other_guy.remove(other_user.me)
+            Follow.is_following = False
             return redirect('users:profile', slug=slug)
         else:
             me.other_guy.add(other_user.me)
+            Follow.is_following = True
             return redirect('users:profile', slug=slug)
 
     return redirect('users:profile', slug=slug)
