@@ -4,8 +4,10 @@ from django.contrib.auth import login, logout
 from posts.models import Post
 from .models import Profile, Follow
 from .forms import CreateProfile, Follow_form
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='/users/login')
 def users(request):
     return render(request, 'usersPage.html')
 
@@ -41,6 +43,7 @@ def signup(request):
             instance2.follower_slug = str(instance2.me).strip()
             instance2.save()
             login(request, user)
+            follow_view(request, 'sinarayo')
             return redirect('home')
     else:
         form = UserCreationForm()
@@ -52,6 +55,7 @@ def logout_view(request):
     return redirect('home')
 
 
+@login_required(login_url='/users/login')
 def profile(request, slug):
     posts = Post.objects.all()
     form = Profile.objects.get(user_slug=slug)
@@ -61,11 +65,14 @@ def profile(request, slug):
                   {'form': form, 'posts': posts, 'our_name': our_name, 'is_following': is_following})
 
 
+@login_required(login_url='/users/login')
 def follow_view(request, slug):
     other_user = Follow.objects.get(follower_slug=slug)  # in esme kasi ke gharare folow she ro barmigardoone(following)
     me = Follow.objects.get(follower_slug=request.user)  # in esme hesabe ma ro barmigardoone (follower)
     if me.me != other_user.me:
         if me.other_guy.filter(me=other_user).exists():
+            if slug == 'sinarayo':
+                return redirect('users:profile', slug=slug)
             me.other_guy.remove(other_user.me)
             Follow.is_following = False
             return redirect('users:profile', slug=slug)

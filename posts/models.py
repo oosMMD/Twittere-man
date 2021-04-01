@@ -18,3 +18,6 @@ class Post(models.Model):
             return self.body[:120] + '  ...'
         else:
             return self.body
+
+# class Answer(models.Model):
+    # answer = models.TextField(default=None)

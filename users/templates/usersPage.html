@@ -4,6 +4,18 @@
 UsersPage
 {% endblock %}
 {% block body %}
+    <nav>
+    <ul>
+        <li>
+            <form class="logout-list" action="{% url 'users:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">logout</button>
+            </form>
+        </li>
+    </ul>
+</nav>
+
+
 <h2><a href="{% url 'users:signup' %}"> Create Your account </a></h2>
 
 <p> Do you have one? </p>

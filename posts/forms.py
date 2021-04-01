@@ -6,3 +6,9 @@ class CreatePost(forms.ModelForm):
     class Meta():
         model = models.Post
         fields = ['title', 'body']
+
+
+# class Answer(forms.ModelForm):
+#     class Meta():
+#         model = models.Answer
+#         fields = ['answer']
