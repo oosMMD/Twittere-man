@@ -11,7 +11,7 @@ class Post(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title
+        return self.slug
 
     def editedbody(self):
         if len(self.body) > 120:
@@ -19,5 +19,12 @@ class Post(models.Model):
         else:
             return self.body
 
-# class Answer(models.Model):
-    # answer = models.TextField(default=None)
+
+class Answer(models.Model):
+    answer = models.TextField()
+    target = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='target')
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commenter')
+
+    def __str__(self):
+        return self.answer[:10]
+

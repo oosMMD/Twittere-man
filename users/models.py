@@ -15,7 +15,6 @@ class Follow(models.Model):
     me = models.OneToOneField(User, on_delete=models.CASCADE, related_name="me")
     other_guy = models.ManyToManyField(User, blank=True, related_name='other_guy')
     follower_slug = models.SlugField(default=str(me).strip())
-    is_following = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.me)

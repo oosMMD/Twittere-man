@@ -7,7 +7,6 @@
 {% block body %}
     <h1 class="profile_name">///&nbsp;&nbsp;&nbsp; {{ form.name }} &nbsp;&nbsp;&nbsp; ///</h1>
     {% if our_name != form.name and form.name != 'sinarayo' %}
-        <h1>{{ is_following }}</h1>
         {% if is_following == False %}
             <a href="{% url "users:follow" slug=form.name %}" class="follow_btn">Follow</a>
         {% elif is_following == True %}

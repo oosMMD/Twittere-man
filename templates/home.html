@@ -18,7 +18,7 @@ HomePage
     <h2 class="post-page-link"><a href="{% url 'posts:home' %}">Visit all posts</a></h2>
     <p><a href="{% url 'posts:create' %}" class="highlight"> Create new Post </a></p>
 
-    <h2 class="your_following">|&nbsp;&nbsp; your following posts &nbsp;&nbsp;|</h2>
+    <h2 class="your_following">your following posts</h2>
 
     {% for post in posts %}
     {% if post.author in followings %}

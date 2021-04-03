@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from . import models, forms
 from django.contrib.auth.decorators import login_required
 from users import models as m
+from django.http import HttpResponse
 
 
 @login_required(login_url='/users/login')
@@ -13,7 +14,8 @@ def postspage(request):
 @login_required(login_url='/users/login')
 def post_detail(request, slug):
     post = models.Post.objects.get(slug=slug)
-    return render(request, 'post_detail.html', {'post': post})
+    answers = models.Answer.objects.all()
+    return render(request, 'post_detail.html', {'post': post, 'answers': answers})
 
 
 @login_required(login_url='/users/login')
@@ -35,9 +37,22 @@ def create_post(request):
 
 
 @login_required(login_url='/users/login')
+def answer_(request, slug):
+    if request.method == 'POST':
+        form = forms.Answer(request.POST)
+        instance = form.save(commit=False)
+        instance.target = models.Post.objects.get(slug=slug)
+        instance.commenter = request.user
+        instance.save()
+        return redirect('posts:post_detail', slug=slug)
+    form = forms.Answer
+    return render(request, 'answer_page.html', {'form': form, 'slug': slug})
+
+
+@login_required(login_url='/users/login')
 def deletepost(request, slug):
     me = m.Profile.objects.get(name=request.user).name
     post = models.Post.objects.get(slug=slug)
-    if post.author == me:
+    if str(post.author) == me:
         post.delete()
     return redirect('posts:home')

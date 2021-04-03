@@ -8,7 +8,7 @@ class CreatePost(forms.ModelForm):
         fields = ['title', 'body']
 
 
-# class Answer(forms.ModelForm):
-#     class Meta():
-#         model = models.Answer
-#         fields = ['answer']
+class Answer(forms.ModelForm):
+    class Meta():
+        model = models.Answer
+        fields = ['answer']

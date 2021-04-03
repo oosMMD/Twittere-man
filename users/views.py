@@ -60,7 +60,14 @@ def profile(request, slug):
     posts = Post.objects.all()
     form = Profile.objects.get(user_slug=slug)
     our_name = str(Profile.objects.get(name=request.user))
-    is_following = bool(Follow.is_following)
+
+    other_user = Follow.objects.get(follower_slug=slug)
+    me = Follow.objects.get(follower_slug=request.user)
+    if me.other_guy.filter(me=other_user).exists():
+        is_following = True
+    else:
+        is_following = False
+
     return render(request, 'profile.html',
                   {'form': form, 'posts': posts, 'our_name': our_name, 'is_following': is_following})
 

@@ -139,6 +139,10 @@ a.highlight {
     background-color: yellowgreen;
 }
 
+a.highlight:hover {
+    background-color: #11dba1;
+}
+
 a.highlight2 {
     margin: 50px;
     border: 1px solid #f12;
@@ -217,6 +221,8 @@ input.input1:hover {
     color: aquamarine;
     border: 2px solid red;
     padding: 20px;
+    margin-left: 250px;
+    margin-right: 250px;
 }
 
 .post-body {
@@ -272,4 +278,45 @@ input.input1:hover {
     font-size: 2em;
     color: orange;
     margin: 50px;
+}
+
+
+.answer_list {
+    border: 3px #006c47 solid;
+    background-color: #00dba0;
+    color: black;
+    list-style-type: none;
+    padding: 5px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 30px;
+}
+
+.answer {
+    font-size: 25px;
+    text-align: center;
+}
+
+.answer_commenter {
+    border: 1px solid red;
+    padding: 10px;
+    width: 50px;
+    color: darkblue;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.comments_text {
+    margin-bottom: 10px;
+    font-size: 50px;
+    color: #00dba0;
+}
+
+.comment_btn {
+    border: 1px red solid;
+    padding: 12px;
+    margin-right: 400px;
+    margin-left: 400px;
 }
