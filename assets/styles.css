@@ -319,4 +319,19 @@ input.input1:hover {
     padding: 12px;
     margin-right: 400px;
     margin-left: 400px;
+    margin-bottom: 400px;
+}
+
+.comments_box {
+    border: 3px solid red;
+    margin-top: 100px;
+    margin-bottom: 25px;
+    padding: 15px;
+}
+
+.space {
+    background-color: #4f4f4f;
+    opacity: 0;
+    height: 200px;
+    border-radius: 20px;
 }

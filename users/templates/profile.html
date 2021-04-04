@@ -19,7 +19,6 @@
         <h1 class="follow_btn">Admin</h1>
     {% endif %}
     <h1>Posts</h1>
-
     {% for post in posts %}
         {% if post.author.username == form.name %}
             <div class="article">
@@ -32,5 +31,4 @@
             </div>
         {% endif %}
     {% endfor %}
-
 {% endblock %}

@@ -8,12 +8,22 @@
     <p class="post-body">{{ post.body }}</p>
     <div class="detail"><p class="seller"> author : <a href="{% url 'users:profile' slug=post.auth_slug %}" class="author-link">{{post.author}}</a></p></div>
     <p class="datetime">{{ post.date }}</p>
+
+<div class="space"></div>
+
 {#    <h2 class="comments_text">Comments</h2>#}
+    {% for answer in answers %}
+    {% if answer.target == post %}
+    <div class="comments_box">
+    {% endif %}
+    {% endfor %}
+
     {% for answer in answers %}
     {% if answer.target == post %}
         <li class="answer_list"><p class="answer">{{ answer.answer }}</p>
         <a href="{% url 'users:profile' slug=answer.commenter %}"><h3 class="answer_commenter">{{ answer.commenter }}</h3></a></li>
-{% endif %}
-        {% endfor %}
+    {% endif %}
+    {% endfor %}
+
     <h2 class="comment_btn"><a href="{% url 'posts:answer' slug=post.slug %}">Comment</a></h2>
 {% endblock %}
